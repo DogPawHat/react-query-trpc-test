@@ -4,7 +4,7 @@ import * as React from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { getAmountOfUsers } from "./fetcher";
 
-const PageClient = ({}) => {
+const SuspendingData = ({}) => {
   return (
     <React.Suspense fallback={<em>Loading...</em>}>
       <SuspenseContent />
@@ -18,4 +18,4 @@ const SuspenseContent = () => {
   return <div>Amount of users: {data.amount}</div>;
 };
 
-export default PageClient;
+export default SuspendingData;
