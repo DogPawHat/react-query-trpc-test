@@ -1,13 +1,18 @@
 import { queryOptions } from "@tanstack/react-query";
 
-export function getAmountOfUsers() {
-    return queryOptions({
-        queryKey: ["users", "amount"],
-        queryFn: async () => {
-            await new Promise((resolve) => setTimeout(resolve, 1));
-            return {
-                amount: 10,
-            }
-        },
-    });
+async function getAmountOfUsers() {
+    await new Promise((resolve) => setTimeout(resolve, 1));
+    return {
+        amount: 10,
+    };
 }
+
+export const amountOfUsersNonSuspenseQueryOptions = queryOptions({
+    queryKey: ["users", "amount", "non-suspense"],
+    queryFn: getAmountOfUsers,
+});
+
+export const amountOfUsersSuspenseQueryOptions = queryOptions({
+    queryKey: ["users", "amount", "suspense"],
+    queryFn: getAmountOfUsers,
+});

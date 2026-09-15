@@ -1,11 +1,10 @@
-
 "use client";
 
-import { useQuery, } from "@tanstack/react-query";
-import { getAmountOfUsers } from "./fetcher";
+import { useQuery } from "@tanstack/react-query";
+import { amountOfUsersNonSuspenseQueryOptions } from "./fetcher";
 
 const NonSuspendingData = () => {
-  const { data } = useQuery(getAmountOfUsers());
+  const { data } = useQuery(amountOfUsersNonSuspenseQueryOptions);
 
   if (data) {
     return <div>Amount of users: {data.amount}</div>;

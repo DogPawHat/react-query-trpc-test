@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { getAmountOfUsers } from "./fetcher";
+import { amountOfUsersSuspenseQueryOptions } from "./fetcher";
 
 const SuspendingData = ({}) => {
   return (
@@ -13,7 +13,7 @@ const SuspendingData = ({}) => {
 };
 
 const SuspenseContent = () => {
-  const { data } = useSuspenseQuery(getAmountOfUsers());
+  const { data } = useSuspenseQuery(amountOfUsersSuspenseQueryOptions);
 
   return <div>Amount of users: {data.amount}</div>;
 };

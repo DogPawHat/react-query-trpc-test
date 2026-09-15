@@ -1,7 +1,13 @@
 # Hydration Bug
 
-When prefetching and using normal useQuery, you will get hydration errors. 
-Just run it locally in dev, and there should come hydrations errors.
+When prefetching and using normal `useQuery`, the pending query can cause a
+hydration error if it resolves after the server render but before the first
+client render.
+
+The non-suspending example deliberately delays its browser hydration by one
+second. Its query resolves after 1 ms, making that timing window reproducible
+instead of depending on CPU, network, or bundler timing. The delay exists only
+for this reproduction.
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
